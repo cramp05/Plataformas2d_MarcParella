@@ -19,8 +19,10 @@ public class PlayerControler : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _jumpAction;
     private Vector2 _moveInput;
-    
 
+    [SerializeField] private Transform _groundSensor;
+    [SerializeField] private float _sensorSize = 1;
+    [SerializeField] private LayerMask _groundLayer;
 
 
     void Awake() 
@@ -51,7 +53,7 @@ public class PlayerControler : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        if(_jumpAction.WasPressedThisFrame()) //para llamar la funcion de salto al pulsar tecla
+        if(_jumpAction.WasPressedThisFrame() && IsGrounded()) //para llamar la funcion de salto al pulsar tecla y estar en el suelo
         {
             Jump();
         }
@@ -66,7 +68,14 @@ public class PlayerControler : MonoBehaviour
 
     void Jump() //crear el movimiento de salto
     {
-        _rigidbody2D.AddForce(Vector2.up, ForceMode2D.Impulse);
+        _rigidbody2D.AddForce(Vector2.up * _forceJump, ForceMode2D.Impulse);
     }
+
+    bool IsGrounded()
+    {
+        return Physics2D.OverlapCircleAll(_groundSensor.position, _sensorSize, _groundLayer) != null;
+    }
+
+    
 
 }
