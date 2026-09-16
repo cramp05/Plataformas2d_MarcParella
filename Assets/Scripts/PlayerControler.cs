@@ -7,7 +7,7 @@ public class PlayerControler : MonoBehaviour
     private int _maxHealth = 100;
 
     [SerializeField] private float _movementSpeed = 4.5f;
-    [SerializeField] private float _forceJump = 10;
+    [SerializeField] private float _jumpHeight = 10;
 
     //float "nombre" = 5.7f;  con decimales
     //bool "nombre" = "true/false";
@@ -68,7 +68,7 @@ public class PlayerControler : MonoBehaviour
 
     void Jump() //crear el movimiento de salto
     {
-        _rigidbody2D.AddForce(Vector2.up * _forceJump, ForceMode2D.Impulse);
+        _rigidbody2D.AddForce(Vector2.up * Mathf.Sqrt(_jumpHeight * -2 * Physics2D.gravity.y), ForceMode2D.Impulse);
     }
 
     bool IsGrounded()
