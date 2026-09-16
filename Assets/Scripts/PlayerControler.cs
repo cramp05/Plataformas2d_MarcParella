@@ -73,7 +73,22 @@ public class PlayerControler : MonoBehaviour
 
     bool IsGrounded()
     {
-        return Physics2D.OverlapCircleAll(_groundSensor.position, _sensorSize, _groundLayer) != null;
+        Collider2D[] collider2D = Physics2D.OverlapCircleAll(_groundSensor.position, _sensorSize);
+
+        foreach (Collider2D item in collider2D)
+        {
+            if(item.gameObject.layer == 6)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void OnDrawGizmos() 
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(_groundSensor.position, _sensorSize);
     }
 
     

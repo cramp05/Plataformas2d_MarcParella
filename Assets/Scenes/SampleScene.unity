@@ -6582,11 +6582,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControler
   _movementSpeed: 4.5
   _forceJump: 10
-  _groundSensor: {fileID: 0}
-  _sensorSize: 1
+  _groundSensor: {fileID: 1588742572}
+  _sensorSize: 0.2
   _groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &1284976343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6656,7 +6656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588742571}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.489, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
