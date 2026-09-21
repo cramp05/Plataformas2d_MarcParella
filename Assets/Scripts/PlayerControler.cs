@@ -74,7 +74,7 @@ public class PlayerControler : MonoBehaviour
 
         _animator.SetBool("IsJumping", !IsGrounded());
 
-        if(_attackAction.WasPressedThisFrame())
+        if(_attackAction.WasPressedThisFrame() && IsGrounded())
         {
             Attack();
         }
