@@ -26,6 +26,10 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float _sensorSize = 1;
     [SerializeField] private LayerMask _groundLayer;
 
+    [SerializeField] private int _attackDamage = 7;
+    [SerializeField] private Transform _attackHitBox;
+    [SerializeField] private float _hitBoxRadius = 1f;
+
     private Animator _animator;
 
 
@@ -97,6 +101,17 @@ public class PlayerControler : MonoBehaviour
     void Attack()
     {
         _animator.SetTrigger("IsAttacking");
+
+        Collider2D[] collider2D = Physics2D.OverlapCircleAll(_attackHitBox.position, _hitBoxRadius);
+
+        foreach (Collider2D enemy in collider2D)
+        {
+            if(enemy.gameObject.layer == 7)
+            {
+                Mimik enemyScript = enemy.GetComponent<Mimik>();
+                enemyScript.TakeDamage(_attackDamage);
+            }
+        }
     }
 
     bool IsGrounded()
@@ -117,8 +132,9 @@ public class PlayerControler : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_groundSensor.position, _sensorSize);
-    }
 
-    
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_attackHitBox.position, _hitBoxRadius);
+    }
 
 }

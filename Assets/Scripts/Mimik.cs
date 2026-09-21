@@ -10,7 +10,6 @@ public class Mimik : MonoBehaviour
     {
         _actualHealth = _maxHealth;
 
-        TakeDamage(10);
     }
 
 
@@ -19,8 +18,18 @@ public class Mimik : MonoBehaviour
         
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         _actualHealth -= damage;
+
+        if(_actualHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
