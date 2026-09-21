@@ -16,6 +16,8 @@ public class PlayerControler : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
 
+    private InputAction _attackAction;
+
     private InputAction _moveAction;
     private InputAction _jumpAction;
     private Vector2 _moveInput;
@@ -24,6 +26,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float _sensorSize = 1;
     [SerializeField] private LayerMask _groundLayer;
 
+    private Animator _animator;
+
 
     void Awake() 
     {
@@ -31,6 +35,9 @@ public class PlayerControler : MonoBehaviour
 
         _moveAction = InputSystem.actions["Move"];
         _jumpAction = InputSystem.actions["Jump"];
+        _attackAction = InputSystem.actions["Attack"];
+
+        _animator = GetComponent<Animator>();
     }
 
 
@@ -47,16 +54,32 @@ public class PlayerControler : MonoBehaviour
         if(_moveInput.x < 0) //para rotar el personaje al cambiar la direccion
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            _animator.SetBool("IsRuning", true);
         }
         else if(_moveInput.x > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            _animator.SetBool("IsRuning", true);
+        }
+        else
+        {
+            _animator.SetBool("IsRuning", false);
         }
 
         if(_jumpAction.WasPressedThisFrame() && IsGrounded()) //para llamar la funcion de salto al pulsar tecla y estar en el suelo
         {
             Jump();
         }
+        
+
+        _animator.SetBool("IsJumping", !IsGrounded());
+
+        if(_attackAction.WasPressedThisFrame())
+        {
+            Attack();
+        }
+
+
 
         
     }
@@ -69,6 +92,11 @@ public class PlayerControler : MonoBehaviour
     void Jump() //crear el movimiento de salto
     {
         _rigidbody2D.AddForce(Vector2.up * Mathf.Sqrt(_jumpHeight * -2 * Physics2D.gravity.y), ForceMode2D.Impulse);
+    }
+
+    void Attack()
+    {
+        _animator.SetTrigger("IsAttacking");
     }
 
     bool IsGrounded()
