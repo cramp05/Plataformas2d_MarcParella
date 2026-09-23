@@ -60,7 +60,11 @@ public class PlayerControler : MonoBehaviour
             GamaManager.Instance.Pause();
         }
 
-        
+        if(GamaManager.Instance.IsPaused())
+        {
+            return;            
+        }
+
         _moveInput = _moveAction.ReadValue<Vector2>(); //leemos el valor de las teclas pulsadas del move
 
         if(_moveInput.x < 0) //para rotar el personaje al cambiar la direccion

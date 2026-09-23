@@ -20,6 +20,11 @@ public class GamaManager : MonoBehaviour
         }
     }
 
+    void start()
+    {
+        AudioManager.Instance.StartSoundTranck();
+    }
+
 
     public void AddCoin() //creamos una funcion para modificar la variable del contador de modendas
     {
@@ -32,13 +37,21 @@ public class GamaManager : MonoBehaviour
         if(_isPaused)
         {
             _isPaused = false;
+            AudioManager.Instance.PauseSoundtrack();
             Time.timeScale = 1;
+            
         }
         else
         {
             _isPaused = true;
+            AudioManager.Instance.PauseSoundtrack();
             Time.timeScale = 0;
         }
 
+    }
+
+    public bool IsPaused()
+    {
+        return _isPaused;
     }
 }
