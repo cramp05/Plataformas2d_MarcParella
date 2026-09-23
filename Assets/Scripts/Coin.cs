@@ -5,10 +5,14 @@ public class Coin : MonoBehaviour
     private AudioSource _coinAudioSource;
     
     [SerializeField] private AudioClip _coinAudio;
+    private SpriteRenderer _spriteRenderer;
+    private CircleCollider2D _collider;
 
     void Awake()
     {
         _coinAudioSource = GetComponent<AudioSource>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<CircleCollider2D>();
     }
 
     void OnTriggerEnter2D(Collider2D collision) 
@@ -17,7 +21,9 @@ public class Coin : MonoBehaviour
         {
             GamaManager.Instance.AddCoin(); //llamamos a la funcion de añadir una moneda antes de matarla
             PlaySFX();
-            Destroy(gameObject);
+            _spriteRenderer.enabled = false;
+            _collider.enabled = false;
+            Destroy(gameObject, 0.5f);
         }
     }
 
