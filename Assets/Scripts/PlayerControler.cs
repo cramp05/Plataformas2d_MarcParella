@@ -17,6 +17,7 @@ public class PlayerControler : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
 
     private InputAction _attackAction;
+    private InputAction _pauseAction;
 
     private InputAction _moveAction;
     private InputAction _jumpAction;
@@ -40,6 +41,7 @@ public class PlayerControler : MonoBehaviour
         _moveAction = InputSystem.actions["Move"];
         _jumpAction = InputSystem.actions["Jump"];
         _attackAction = InputSystem.actions["Attack"];
+        _pauseAction = InputSystem.actions["Pause"];
 
         _animator = GetComponent<Animator>();
     }
@@ -53,6 +55,12 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_pauseAction.WasPressedThisFrame())
+        {
+            GamaManager.Instance.Pause();
+        }
+
+        
         _moveInput = _moveAction.ReadValue<Vector2>(); //leemos el valor de las teclas pulsadas del move
 
         if(_moveInput.x < 0) //para rotar el personaje al cambiar la direccion
@@ -75,7 +83,6 @@ public class PlayerControler : MonoBehaviour
             Jump();
         }
         
-
         _animator.SetBool("IsJumping", !IsGrounded());
 
         if(_attackAction.WasPressedThisFrame() && IsGrounded())
