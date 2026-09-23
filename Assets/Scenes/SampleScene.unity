@@ -7998,7 +7998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1890d29e82a6a2142a7c7eb6f3b2f69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  _level1soundtrack: {fileID: 0}
+  _level1soundtrack: {fileID: 8300000, guid: f676964e85f76ec489ee4bf73190d00f, type: 3}
 --- !u!82 &1086483295
 AudioSource:
   m_ObjectHideFlags: 0

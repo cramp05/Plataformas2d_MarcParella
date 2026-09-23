@@ -20,7 +20,7 @@ public class GamaManager : MonoBehaviour
         }
     }
 
-    void start()
+    void Start()
     {
         AudioManager.Instance.StartSoundTranck();
     }
@@ -37,7 +37,7 @@ public class GamaManager : MonoBehaviour
         if(_isPaused)
         {
             _isPaused = false;
-            AudioManager.Instance.PauseSoundtrack();
+            AudioManager.Instance.StartSoundTranck();
             Time.timeScale = 1;
             
         }

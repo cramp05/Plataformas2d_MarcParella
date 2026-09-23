@@ -18,10 +18,12 @@ public class PlayerControler : MonoBehaviour
 
     private InputAction _attackAction;
     private InputAction _pauseAction;
-
     private InputAction _moveAction;
     private InputAction _jumpAction;
+
     private Vector2 _moveInput;
+
+    private AudioSource _playAudioSource;
 
     [SerializeField] private Transform _groundSensor;
     [SerializeField] private float _sensorSize = 1;
@@ -30,6 +32,11 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private int _attackDamage = 7;
     [SerializeField] private Transform _attackHitBox;
     [SerializeField] private float _hitBoxRadius = 1f;
+
+    [SerializeField] private AudioClip _jumpSound;
+    [SerializeField] private AudioClip _attackSound;
+
+
 
     private Animator _animator;
 
@@ -44,6 +51,7 @@ public class PlayerControler : MonoBehaviour
         _pauseAction = InputSystem.actions["Pause"];
 
         _animator = GetComponent<Animator>();
+        _playAudioSource = GetComponent<AudioSource>();
     }
 
 
@@ -107,11 +115,14 @@ public class PlayerControler : MonoBehaviour
     void Jump() //crear el movimiento de salto
     {
         _rigidbody2D.AddForce(Vector2.up * Mathf.Sqrt(_jumpHeight * -2 * Physics2D.gravity.y), ForceMode2D.Impulse);
+        PlaySFX(_jumpSound);
     }
 
     void Attack()
     {
         _animator.SetTrigger("IsAttacking");
+
+        PlaySFX(_attackSound, 0.5f);
 
         Collider2D[] collider2D = Physics2D.OverlapCircleAll(_attackHitBox.position, _hitBoxRadius);
 
@@ -123,6 +134,11 @@ public class PlayerControler : MonoBehaviour
                 enemyScript.TakeDamage(_attackDamage);
             }
         }
+    }
+
+    void PlaySFX(AudioClip clip, float volume = 1)
+    {
+        _playAudioSource.PlayOneShot(clip, volume);
     }
 
     bool IsGrounded()

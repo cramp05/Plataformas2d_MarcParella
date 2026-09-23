@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioClip _level1soundtrack;
 
-    void awake()
+    void Awake()
     {
         if(Instance != null && Instance != this)
         {
