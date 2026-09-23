@@ -3,9 +3,6 @@ using UnityEngine.InputSystem; //para usar el input action
 
 public class PlayerControler : MonoBehaviour
 {
-
-    private int _maxHealth = 100;
-
     [SerializeField] private float _movementSpeed = 4.5f;
     [SerializeField] private float _jumpHeight = 10;
 
@@ -32,14 +29,13 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private int _attackDamage = 7;
     [SerializeField] private Transform _attackHitBox;
     [SerializeField] private float _hitBoxRadius = 1f;
+    [SerializeField] private int _actualHealth;
+    [SerializeField] private int _maxHealth = 100;
 
     [SerializeField] private AudioClip _jumpSound;
     [SerializeField] private AudioClip _attackSound;
 
-
-
     private Animator _animator;
-
 
     void Awake() 
     {
@@ -57,7 +53,8 @@ public class PlayerControler : MonoBehaviour
 
     void Start()
     {
-        
+        //_actualHealth = _maxHealth;
+
     }
 
     // Update is called once per frame
@@ -101,10 +98,7 @@ public class PlayerControler : MonoBehaviour
         {
             Attack();
         }
-
-
-
-        
+  
     }
 
     void FixedUpdate()
@@ -135,6 +129,19 @@ public class PlayerControler : MonoBehaviour
             }
         }
     }
+
+    public void CurarVida(int sumarVida)
+    {
+         _actualHealth += sumarVida;
+
+        if(_actualHealth >= _maxHealth)
+        {
+            _actualHealth = _maxHealth;
+        }
+    }
+    
+
+
 
     void PlaySFX(AudioClip clip, float volume = 1)
     {

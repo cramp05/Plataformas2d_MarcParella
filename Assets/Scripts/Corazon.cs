@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Corazon : MonoBehaviour
 {
-    private AudioSource _coinAudioSource;
+    private AudioSource _corazonAudioSource;
+
+    [SerializeField] private int _curarVida = 20;
     
-    [SerializeField] private AudioClip _coinAudio;
+    [SerializeField] private AudioClip _corazonAudio;
     private SpriteRenderer _spriteRenderer;
     private CircleCollider2D _collider;
 
     void Awake()
     {
-        _coinAudioSource = GetComponent<AudioSource>();
+        _corazonAudioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<CircleCollider2D>();
     }
@@ -19,7 +21,9 @@ public class Coin : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            GamaManager.Instance.AddCoin(); //llamamos a la funcion de añadir una moneda antes de matarla
+            PlayerControler corazonScript = collision.GetComponent<PlayerControler>();
+            corazonScript.CurarVida(_curarVida);
+
             PlaySFX();
             _spriteRenderer.enabled = false;
             _collider.enabled = false;
@@ -29,7 +33,7 @@ public class Coin : MonoBehaviour
 
     void PlaySFX()
     {
-        _coinAudioSource.PlayOneShot(_coinAudio);
+        _corazonAudioSource.PlayOneShot(_corazonAudio);
     }
 
 }
