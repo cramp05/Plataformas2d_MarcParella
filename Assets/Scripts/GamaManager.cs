@@ -18,6 +18,7 @@ public class GamaManager : MonoBehaviour
         {
             Instance = this;
         }
+
     }
 
     void Start()
@@ -47,6 +48,8 @@ public class GamaManager : MonoBehaviour
             AudioManager.Instance.PauseSoundtrack();
             Time.timeScale = 0;
         }
+
+        CanvasManager.Instance.ChangeCanvasStatus();
 
     }
 
