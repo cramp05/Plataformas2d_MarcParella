@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void ChangeScene()
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(sceneName);
     }
     
 }
