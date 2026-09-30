@@ -49,7 +49,7 @@ public class GamaManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        CanvasManager.Instance.ChangeCanvasStatus();
+        CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.pauseCanvas, CanvasManager.Instance.resumeButton);
 
     }
 
