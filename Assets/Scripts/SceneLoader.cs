@@ -60,6 +60,7 @@ public class SceneLoader : MonoBehaviour
 
         }
 
+        Time.timeScale = 1;
         _loadingCanvas.SetActive(false);
     }
     

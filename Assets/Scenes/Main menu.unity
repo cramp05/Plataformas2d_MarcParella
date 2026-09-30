@@ -842,7 +842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &779801644
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1194,8 +1194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ef92149a49bd74f8c44781fbbbe4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  _loadingCanvas: {fileID: 0}
-  _loadingBar: {fileID: 0}
+  _loadingCanvas: {fileID: 779801643}
+  _loadingBar: {fileID: 1613645680}
 --- !u!4 &943645886
 Transform:
   m_ObjectHideFlags: 0
