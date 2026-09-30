@@ -9,8 +9,12 @@ public class CanvasManager : MonoBehaviour
     public GameObject gameOverCanvas;
     public Button retryButton;
 
+    [SerializeField] private Image _vidaBar;
+
     
     public static CanvasManager Instance;
+
+    [SerializeField] private float _vidaPorcentaje = 1;
 
 
 
@@ -40,4 +44,21 @@ public class CanvasManager : MonoBehaviour
         }
         
     }
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneLoader.Instance.ChangeScene(sceneName);
+    }
+
+
+
+    void QuitarVidaBarra()
+    {
+        _vidaPorcentaje -= 0.2f;
+        Mathf.Clamp01(_vidaPorcentaje);
+
+        _vidaBar.fillAmount = _vidaPorcentaje;
+    }
+
+
 }

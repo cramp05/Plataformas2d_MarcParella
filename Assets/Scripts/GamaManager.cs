@@ -5,6 +5,7 @@ public class GamaManager : MonoBehaviour
     public static GamaManager Instance; //para poder acceder al game manager desde otro script, es una variable estatica
 
     [SerializeField] private int coins;
+    [SerializeField] private int star;
 
     private bool _isPaused = false;
 
@@ -31,6 +32,11 @@ public class GamaManager : MonoBehaviour
     {
         coins += 1;
 
+    }
+
+    public void AddStar()
+    {
+        star += 1;
     }
 
     public void Pause()

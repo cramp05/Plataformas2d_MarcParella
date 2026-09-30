@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coins
   - Corazon
+  - Star
   layers:
   - Default
   - TransparentFX

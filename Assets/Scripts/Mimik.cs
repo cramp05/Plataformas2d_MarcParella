@@ -5,11 +5,12 @@ public class Mimik : MonoBehaviour
     [SerializeField] private int _maxHealth = 20;
     private int _actualHealth;
 
+    [SerializeField] private int _quitarVidaPlayer = 20;
+
 
     void Start()
     {
         _actualHealth = _maxHealth;
-
     }
 
 
@@ -31,5 +32,16 @@ public class Mimik : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            PlayerControler scriptPlayerControler = collision.gameObject.GetComponent<PlayerControler>();
+            scriptPlayerControler.RestarVida(_quitarVidaPlayer);
+
+            //PlaySFX();
+        }
     }
 }

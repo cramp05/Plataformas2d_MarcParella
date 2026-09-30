@@ -29,6 +29,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private int _attackDamage = 7;
     [SerializeField] private Transform _attackHitBox;
     [SerializeField] private float _hitBoxRadius = 1f;
+
     [SerializeField] private int _actualHealth;
     [SerializeField] private int _maxHealth = 100;
 
@@ -138,6 +139,18 @@ public class PlayerControler : MonoBehaviour
         {
             _actualHealth = _maxHealth;
         }
+    }
+
+    public void RestarVida(int quitarVida)
+    {
+         _actualHealth -= quitarVida;
+
+        if(_actualHealth <= _maxHealth)
+        {
+            //morir
+        }
+
+
     }
     
 
