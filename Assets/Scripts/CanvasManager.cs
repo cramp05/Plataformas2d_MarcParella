@@ -1,13 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.TextCore.Text;
 
 public class CanvasManager : MonoBehaviour
 {
     public GameObject pauseCanvas;
     public Button resumeButton;
 
+    public GameObject winCanvas;
+    public Button playButton;
+
     public GameObject gameOverCanvas;
     public Button retryButton;
+
+    public GameObject gui;
+    public Text contadorEstrellas;
+    public Text contadorMonedas;
 
     [SerializeField] private Image _vidaBar;
 
@@ -60,5 +68,13 @@ public class CanvasManager : MonoBehaviour
         _vidaBar.fillAmount = _vidaPorcentaje;
     }
 
+    public void AddSarText(int numberStars)
+    {
+        contadorEstrellas.text = numberStars.ToString();
+    }
 
+    public void AddCoinText(int numberCoins)
+    {
+        contadorEstrellas.text = numberCoins.ToString();
+    }
 }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GamaManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class GamaManager : MonoBehaviour
     [SerializeField] private int star;
 
     private bool _isPaused = false;
+    private bool _winMenu = false;
+    private bool _gui = true;
 
     void Awake()
     {
@@ -27,16 +30,30 @@ public class GamaManager : MonoBehaviour
         AudioManager.Instance.StartSoundTranck();
     }
 
+    void Update()
+    {
+        if(_winMenu == false)
+        {
+            if (star == 10)
+            {
+                Win();
+            }
+        }
+
+    }
+
 
     public void AddCoin() //creamos una funcion para modificar la variable del contador de modendas
     {
         coins += 1;
-
+        CanvasManager.Instance.AddCoinText(coins);
     }
 
     public void AddStar()
     {
         star += 1;
+        CanvasManager.Instance.AddSarText(star);
+
     }
 
     public void Pause()
@@ -62,5 +79,29 @@ public class GamaManager : MonoBehaviour
     public bool IsPaused()
     {
         return _isPaused;
+    }
+
+    public void Win()
+    {
+        if (_winMenu == false)
+        {
+            Time.timeScale = 0;
+            _winMenu = true;
+            _gui = false;
+
+        }
+        else
+        {
+            Time.timeScale = 1;
+            _winMenu = false;
+            _gui = true;
+
+        }
+        if(_gui == false)
+        {
+            CanvasManager.Instance.gui.SetActive(false);
+        }
+        //winCanvas.SetActive(_winMenu);
+        CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.winCanvas, CanvasManager.Instance.playButton);
     }
 }

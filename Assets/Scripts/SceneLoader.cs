@@ -1,7 +1,8 @@
+using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -34,6 +35,15 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadNewScene(sceneName));
     }
+    public void ExitGame()
+    {
+        #if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+
+        #else
+        Application.Quit();
+        #endif
+    }
 
     IEnumerator LoadNewScene(string sceneName)
     {
@@ -65,5 +75,5 @@ public class SceneLoader : MonoBehaviour
         Time.timeScale = 1;
         _loadingCanvas.SetActive(false);
     }
-    
+
 }

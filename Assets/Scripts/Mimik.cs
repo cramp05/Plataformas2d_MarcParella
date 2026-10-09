@@ -7,6 +7,12 @@ public class Mimik : MonoBehaviour
 
     [SerializeField] private int _quitarVidaPlayer = 20;
 
+    private Animator _animator;
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     void Start()
     {
@@ -38,8 +44,10 @@ public class Mimik : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            _animator.SetBool("IsAttack", true);
             PlayerControler scriptPlayerControler = collision.gameObject.GetComponent<PlayerControler>();
             scriptPlayerControler.RestarVida(_quitarVidaPlayer);
+
 
             //PlaySFX();
         }
