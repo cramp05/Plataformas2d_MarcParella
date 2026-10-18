@@ -83,6 +83,6 @@ public class CanvasManager : MonoBehaviour
 
     public void AddCoinText(int numberCoins)
     {
-        contadorEstrellas.text = numberCoins.ToString();
+        contadorMonedas.text = numberCoins.ToString();
     }
 }

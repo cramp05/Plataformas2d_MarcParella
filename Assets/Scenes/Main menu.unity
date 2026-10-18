@@ -198,9 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1890d29e82a6a2142a7c7eb6f3b2f69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  _menuSoundTrack: {fileID: 8300000, guid: 871b2b7e0671e324e9c0c60fc334de54, type: 3}
-  _level1soundtrack: {fileID: 8300000, guid: c1aaf17de8f4c5e46b015908dc6805dc, type: 3}
-  _gameOverSoundTrack: {fileID: 8300000, guid: f676964e85f76ec489ee4bf73190d00f, type: 3}
+  _menuSoundTrack: {fileID: 8300000, guid: f676964e85f76ec489ee4bf73190d00f, type: 3}
+  _level1soundtrack: {fileID: 8300000, guid: 871b2b7e0671e324e9c0c60fc334de54, type: 3}
+  _gameOverSoundTrack: {fileID: 8300000, guid: da2d8613ea2510d4f83706b189f4986e, type: 3}
   _gameOverSFX: {fileID: 8300000, guid: 40d70ec1565360f4c9dbd416577c3513, type: 3}
 --- !u!82 &1541321071
 AudioSource:

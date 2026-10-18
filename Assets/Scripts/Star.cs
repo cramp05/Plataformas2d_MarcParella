@@ -3,7 +3,7 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
     private AudioSource _starAudioSource;
-    
+
     [SerializeField] private AudioClip _starAudio;
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _collider;
@@ -15,11 +15,11 @@ public class Star : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
     }
 
-    void OnTriggerEnter2D(Collider2D collision) 
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            GamaManager.Instance.AddStar(); //llamamos a la funcion de añadir una moneda antes de matarla
+            GamaManager.Instance.AddStar();
             PlaySFX();
             _spriteRenderer.enabled = false;
             _collider.enabled = false;
@@ -29,7 +29,10 @@ public class Star : MonoBehaviour
 
     void PlaySFX()
     {
-        _starAudioSource.PlayOneShot(_starAudio);
+        if (_starAudio != null)
+        {
+            _starAudioSource.PlayOneShot(_starAudio);
+        }
     }
 
 }

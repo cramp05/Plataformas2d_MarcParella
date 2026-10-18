@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561ee8c2386146b4096814bd7fef95f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Star
-  _starAudio: {fileID: 8300000, guid: f01ca747cf8f747488e2ab2178b69d4e, type: 3}
+  _starAudio: {fileID: 8300000, guid: 435bb8c524c2f6841852a7fea2e64d40, type: 3}
 --- !u!61 &8715945114079580269
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,12 +8,16 @@ public class Mimik : MonoBehaviour
     [SerializeField] private int _quitarVidaPlayer = 20;
     [SerializeField] private float _timeBetweenAttacks = 2f;
 
+    [SerializeField] private AudioClip _attackSound; // So del mímic atac
+    private AudioSource _audioSource;
+
     private float _attackTimer = 0f;
     private Animator _animator;
 
     void Awake()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -26,7 +30,6 @@ public class Mimik : MonoBehaviour
     {
         _attackTimer += Time.deltaTime;
 
-        // Apagamos la animación de ataque 0.5 segundos después de haber atacado
         if (_attackTimer >= 0.5f)
         {
             _animator.SetBool("IsAttack", false);
@@ -63,8 +66,13 @@ public class Mimik : MonoBehaviour
     {
         _attackTimer = 0f;
 
-        // Activa la animación
         _animator.SetBool("IsAttack", true);
+
+        // Reproduce el sonido de ataque del mímico
+        if (_attackSound != null && _audioSource != null)
+        {
+            _audioSource.PlayOneShot(_attackSound);
+        }
 
         PlayerControler scriptPlayerControler = player.GetComponent<PlayerControler>();
         if (scriptPlayerControler != null)

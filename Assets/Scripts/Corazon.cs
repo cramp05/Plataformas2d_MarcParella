@@ -5,8 +5,8 @@ public class Corazon : MonoBehaviour
     private AudioSource _corazonAudioSource;
 
     [SerializeField] private int _curarVida = 20;
-    
     [SerializeField] private AudioClip _corazonAudio;
+
     private SpriteRenderer _spriteRenderer;
     private CircleCollider2D _collider;
 
@@ -17,9 +17,9 @@ public class Corazon : MonoBehaviour
         _collider = GetComponent<CircleCollider2D>();
     }
 
-    void OnTriggerEnter2D(Collider2D collision) 
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             PlayerControler corazonScript = collision.GetComponent<PlayerControler>();
             corazonScript.CurarVida(_curarVida);
@@ -33,7 +33,10 @@ public class Corazon : MonoBehaviour
 
     void PlaySFX()
     {
-        _corazonAudioSource.PlayOneShot(_corazonAudio);
+        if (_corazonAudio != null)
+        {
+            _corazonAudioSource.PlayOneShot(_corazonAudio);
+        }
     }
 
 }

@@ -35,6 +35,7 @@ public class PlayerControler : MonoBehaviour
 
     [SerializeField] private AudioClip _jumpSound;
     [SerializeField] private AudioClip _attackSound;
+    [SerializeField] private AudioClip _hurtSound;
 
     private Animator _animator;
 

@@ -36,7 +36,7 @@ public class GamaManager : MonoBehaviour
     {
         if(_winMenu == false)
         {
-            if (star == 1)
+            if (star == 10)
             {
                 Win();
             }
