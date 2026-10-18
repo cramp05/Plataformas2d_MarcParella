@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class GamaManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GamaManager : MonoBehaviour
     private bool _isPaused = false;
     private bool _winMenu = false;
     private bool _gui = true;
+    private bool _isGameOver = false;
 
     void Awake()
     {
@@ -27,14 +29,14 @@ public class GamaManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.StartSoundTranck();
+        AudioManager.Instance.PlayLevel1Music();
     }
 
     void Update()
     {
         if(_winMenu == false)
         {
-            if (star == 10)
+            if (star == 1)
             {
                 Win();
             }
@@ -58,12 +60,11 @@ public class GamaManager : MonoBehaviour
 
     public void Pause()
     {
-        if(_isPaused)
+        if (_isPaused)
         {
             _isPaused = false;
-            AudioManager.Instance.StartSoundTranck();
+            AudioManager.Instance.ResumeSoundtrack(); // Reanuda la música en vez de reiniciar
             Time.timeScale = 1;
-            
         }
         else
         {
@@ -73,7 +74,6 @@ public class GamaManager : MonoBehaviour
         }
 
         CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.pauseCanvas, CanvasManager.Instance.resumeButton);
-
     }
 
     public bool IsPaused()
@@ -103,5 +103,27 @@ public class GamaManager : MonoBehaviour
         }
         //winCanvas.SetActive(_winMenu);
         CanvasManager.Instance.ChangeCanvasStatus(CanvasManager.Instance.winCanvas, CanvasManager.Instance.playButton);
+    }
+
+    public void GameOver()
+    {
+        if (!_isGameOver)
+        {
+            StartCoroutine(GameOverSequence());
+        }
+    }
+
+    private IEnumerator GameOverSequence()
+    {
+        _isGameOver = true;
+
+        // Para la música y reproduce el sonido de derrota
+        AudioManager.Instance.PlayGameOverSFX();
+
+        // Espera 3 segundos
+        yield return new WaitForSecondsRealtime(3f);
+
+        // Carga la escena de Game Over
+        SceneLoader.Instance.ChangeScene("Game Over");
     }
 }

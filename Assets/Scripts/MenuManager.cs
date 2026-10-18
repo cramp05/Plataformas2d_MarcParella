@@ -11,4 +11,12 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    void Start()
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayMenuMusic();
+        }
+    }
 }

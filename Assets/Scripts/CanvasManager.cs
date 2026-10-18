@@ -10,7 +10,6 @@ public class CanvasManager : MonoBehaviour
     public GameObject winCanvas;
     public Button playButton;
 
-    public GameObject gameOverCanvas;
     public Button retryButton;
 
     public GameObject gui;
@@ -36,6 +35,15 @@ public class CanvasManager : MonoBehaviour
         else
         {
             Instance = this;
+        }
+    }
+
+    public void UpdateHealthBar(int actualHealth, int maxHealth)
+    {
+        if (_vidaBar != null)
+        {
+            float porcentaje = (float)actualHealth / maxHealth;
+            _vidaBar.fillAmount = Mathf.Clamp01(porcentaje);
         }
     }
 

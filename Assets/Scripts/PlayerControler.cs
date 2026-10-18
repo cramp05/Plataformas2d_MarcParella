@@ -54,7 +54,12 @@ public class PlayerControler : MonoBehaviour
 
     void Start()
     {
-        //_actualHealth = _maxHealth;
+        _actualHealth = _maxHealth;
+
+        if (CanvasManager.Instance != null)
+        {
+            CanvasManager.Instance.UpdateHealthBar(_actualHealth, _maxHealth);
+        }
 
     }
 
@@ -133,27 +138,36 @@ public class PlayerControler : MonoBehaviour
 
     public void CurarVida(int sumarVida)
     {
-         _actualHealth += sumarVida;
+        _actualHealth += sumarVida;
 
-        if(_actualHealth >= _maxHealth)
+        if (_actualHealth >= _maxHealth)
         {
             _actualHealth = _maxHealth;
         }
+
+        // Actualiza la barra en la UI
+        CanvasManager.Instance.UpdateHealthBar(_actualHealth, _maxHealth);
     }
 
     public void RestarVida(int quitarVida)
     {
-         _actualHealth -= quitarVida;
+        _actualHealth -= quitarVida;
 
-        if(_actualHealth <= _maxHealth)
+        if (_actualHealth <= 0)
         {
-            //morir
+            _actualHealth = 0;
+            Die();
         }
 
-
+        // Actualiza la barra en la UI
+        CanvasManager.Instance.UpdateHealthBar(_actualHealth, _maxHealth);
     }
-    
 
+    private void Die()
+    {
+        this.enabled = false;
+        GamaManager.Instance.GameOver();
+    }
 
 
     void PlaySFX(AudioClip clip, float volume = 1)
