@@ -63,7 +63,7 @@ public class GamaManager : MonoBehaviour
         if (_isPaused)
         {
             _isPaused = false;
-            AudioManager.Instance.ResumeSoundtrack(); // Reanuda la música en vez de reiniciar
+            AudioManager.Instance.ResumeSoundtrack(); // Reanuda la mï¿½sica en vez de reiniciar
             Time.timeScale = 1;
         }
         else
@@ -117,7 +117,7 @@ public class GamaManager : MonoBehaviour
     {
         _isGameOver = true;
 
-        // Para la música y reproduce el sonido de derrota
+        // Para la mï¿½sica y reproduce el sonido de derrota
         AudioManager.Instance.PlayGameOverSFX();
 
         // Espera 3 segundos
