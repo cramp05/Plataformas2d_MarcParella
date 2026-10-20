@@ -8,7 +8,7 @@ public class Mimik : MonoBehaviour
     [SerializeField] private int _quitarVidaPlayer = 20;
     [SerializeField] private float _timeBetweenAttacks = 2f;
 
-    [SerializeField] private AudioClip _attackSound; // So del m�mic atac
+    [SerializeField] private AudioClip _attackSound; 
     private AudioSource _audioSource;
 
     private float _attackTimer = 0f;

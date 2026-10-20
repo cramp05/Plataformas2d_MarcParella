@@ -1113,11 +1113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 149.53
+      value: 149.52
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.81
+      value: 6.61
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1667,11 +1667,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 138.21
+      value: 138.17
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.66
+      value: -3.33
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2004,8 +2004,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.98, y: -0.69, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.66, y: 1.66, z: 1.66}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18349,7 +18349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1890d29e82a6a2142a7c7eb6f3b2f69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  _menuSoundTrack: {fileID: 8300000, guid: f676964e85f76ec489ee4bf73190d00f, type: 3}
+  _menuSoundTrack: {fileID: 8300000, guid: c1aaf17de8f4c5e46b015908dc6805dc, type: 3}
   _level1soundtrack: {fileID: 8300000, guid: 871b2b7e0671e324e9c0c60fc334de54, type: 3}
   _gameOverSoundTrack: {fileID: 8300000, guid: da2d8613ea2510d4f83706b189f4986e, type: 3}
   _gameOverSFX: {fileID: 8300000, guid: 40d70ec1565360f4c9dbd416577c3513, type: 3}
@@ -18479,11 +18479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 164.35
+      value: 163.75
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -1.27
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19267,7 +19267,7 @@ Transform:
   m_GameObject: {fileID: 1723846034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.777, y: -1.854, z: 0}
+  m_LocalPosition: {x: -2.777, y: -1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20590,11 +20590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.65
+      value: 0.624
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.34
+      value: -2.443
       objectReference: {fileID: 0}
     - target: {fileID: 7768760098596959969, guid: 7bb70f5a8e3f3714895a6873440cc975, type: 3}
       propertyPath: m_LocalPosition.z

@@ -35,15 +35,7 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadNewScene(sceneName));
     }
-    public void ExitGame()
-    {
-        #if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
 
-        #else
-        Application.Quit();
-        #endif
-    }
 
     IEnumerator LoadNewScene(string sceneName)
     {
@@ -58,7 +50,7 @@ public class SceneLoader : MonoBehaviour
         while(!asyncLoad.isDone)
         {
            // _loadingBar.fillAmount = asyncLoad.progress;
-            fakeLoadPorcentaje += 0.01f;
+            fakeLoadPorcentaje += 0.1f;
             Mathf.Clamp01(fakeLoadPorcentaje);
 
             _loadingBar.fillAmount = fakeLoadPorcentaje;
